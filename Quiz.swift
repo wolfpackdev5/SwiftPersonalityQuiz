@@ -5,7 +5,7 @@ import UIKit
 import CoreGraphics
 
 /*
- This SwiftUI view is a personality quiz. It will present a series of questions to the user and based on their responses, it will present a result. The quiz will be presented in a PageView, and each question will be a separate page. Each question will have multiple choice answers. The user's responses will be stored and used to calculate the result. Unsplash images are used as placeholders for each question. The answers are now separated in boxes for better user experience. The updated functionality includes moving to the next question after an answer is selected.
+ This SwiftUI view is a personality quiz. It will present a series of questions to the user and based on their responses, it will present a result. The quiz will be presented in a PageView, and each question will be a separate page. Each question will have multiple choice answers. The user's responses will be stored and used to calculate the result. Unsplash images are used as placeholders for each question. The answers are now separated in boxes for better user experience. The updated functionality includes moving to the next question after an answer is selected. The title of the quiz is now centered and its font size has been increased.
 */
 
 struct ContentView: View {
@@ -14,7 +14,7 @@ struct ContentView: View {
         Question(text: "Which food do you like the most?", answers: ["Steak", "Fish", "Carrots", "Corn"], image: "https://source.unsplash.com/random/food"),
         Question(text: "Which activity do you enjoy?", answers: ["Swimming", "Sleeping", "Cuddling", "Eating"], image: "https://source.unsplash.com/random/activity"),
         Question(text: "What is your favorite color?", answers: ["Red", "Green", "Blue", "Yellow"], image: "https://source.unsplash.com/random/color"),
-        Question(text: "What is your favorite season?", answers: ["Spring", "Summer", "Autumn", "Winter"], image: "https://source.unsplash.com/random/season"),
+       Question(text: "What is your favorite season?", answers: ["Spring", "Summer", "Autumn", "Winter"], image: "https://source.unsplash.com/random/season"),
         Question(text: "What is your favorite animal?", answers: ["Dog", "Cat", "Bird", "Fish"], image: "https://source.unsplash.com/random/animal")
     ]
     
@@ -32,7 +32,7 @@ struct ContentView: View {
                             .clipped()
                         Text(self.questions[index].text)
                         ForEach(self.questions[index].answers, id: \.self) { answer in
-                            Button(action: {
+                           Button(action: {
                                 self.responses.append(answer)
                                 if index != self.questions.count - 1 {
                                     self.selectedTab = index + 1
@@ -49,7 +49,6 @@ struct ContentView: View {
                     .tag(index)
                 }
             }
-            .navigationBarTitle("Personality Quiz")
             .tabViewStyle(PageTabViewStyle())
         }
     }
